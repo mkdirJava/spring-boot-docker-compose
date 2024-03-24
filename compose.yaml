@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  ice-cream-service:
+    build: 
+      context: ice-cream-service
+      dockerfile: dockerfile
+    environment:
+      - DEBUG_PORT=9090
+    ports:
+      - "6060:6060"
+      - "9090:9090"
+    volumes:
+      - ./ice-cream-service:/app/code
+  bacon-service:
+    build: 
+      context: bacon-service
+      dockerfile: dockerfile
+    environment:
+      - DEBUG_PORT=8080
+    ports:
+      - "7070:7070"
+      - "8080:8080"
+    volumes:
+      - ./bacon-service:/app/code      
